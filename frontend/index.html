@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Script Launcher</title>
+    <script
+      src="http://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+      crossorigin="anonymous">
+    </script>
+    <script src="angular/angular.js"></script>
+    <script src="angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/home/home.controller.js"></script>
+  </head>
+  <body ng-app="scriptApp">
+    <h1 style="display: flex; justify-content: center">Script ME</h1>
+
+    <div ui-view></div>
+
+  </body>
+</html>

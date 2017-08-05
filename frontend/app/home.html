@@ -1,0 +1,20 @@
+<form name="scanForm" ng-submit="homeVm.submitScan(homeVm.scan)" novalidate>
+  Enter name of service:<br>
+  <input type="text" ng-model="homeVm.scan.serviceName" required><br>
+  Enter Pod-HOST of service:<br>
+  <input type="text" ng-model="homeVm.scan.servicePodHost" required><br>
+  Choose your scan type:<br>
+  <select
+    name="scanType"
+    ng-model="homeVm.scan.scanType">
+    <option ng-selected="type.name == 'homeVm.scan.scanType'"
+      ng-repeat="type in homeVm.types"
+      ng-value="type.name">{{type.value}}</option>
+  </select required><br />
+  Choose port:<br>
+  <input type="text" ng-model="homeVm.scan.port" required><br />
+  <br><br>
+  <button type="submit" ng-disabled="scanForm.$invalid">Submit</button>
+</form>
+
+<h3 ng-bind="homeVm.result"></h3>
