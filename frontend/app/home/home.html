@@ -11,8 +11,13 @@
       ng-repeat="type in homeVm.types"
       ng-value="type.name">{{type.value}}</option>
   </select required><br />
-  Choose port:<br>
-  <input type="text" ng-model="homeVm.scan.port" required><br />
+  <br />
+  <button ng-if="homeVm.scan.scanType === 'all' || homeVm.scan.scanType === 'nikto'" type="submit">Scan port</button><br />
+  <span ng-if="homeVm.scan.scanType === 'all' || homeVm.scan.scanType === 'nikto'">Choose port:</span><br>
+  <input ng-if="homeVm.scan.scanType === 'all' || homeVm.scan.scanType === 'nikto'"
+    type="text"
+    ng-model="homeVm.scan.port"
+    required><br />
   <br><br>
   <button type="submit" ng-disabled="scanForm.$invalid">Submit</button>
 </form>

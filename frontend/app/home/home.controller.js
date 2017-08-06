@@ -9,11 +9,6 @@ function HomeCtrl($http) {
 
   vm.result = 'click to see me';
 
-  vm.user = {
-    firstName: 'Anissss',
-    lastName: 'Ben Amara'
-  }
-
   vm.scan = {
     serviceName: '',
     servicePodHost: '',
@@ -27,20 +22,23 @@ function HomeCtrl($http) {
     { name: 'ws', value: 'Scan websocket'},
     { name: 'nikto', value: 'Check server'},
     { name: 'all', value: 'Scan All'}
-  ]
+  ];
 
-  function getData(user) {
-    return $http.post('/home', user).then(function(res) {
-      return res.data;
-    }).then(function(data) {
-      return data;
-    })
-  }
-  vm.submitScan = function(user) {
-    console.log(user);
+  vm.submitScan = function(scan) {
     vm.result = 'loading';
-    getData(user).then(function (data) {
+    getData(scan).then(function (data) {
       vm.result = 'done';
+      console.log(data);
     })
   };
+
+  function getData(scan) {
+    return $http.post('/', scan)
+      .then(function(res) {
+        return res.data;
+      })
+      .then(function(data) {
+        return data;
+      });
+  }
 }
